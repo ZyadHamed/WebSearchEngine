@@ -1,0 +1,122 @@
+[
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "GetAll",
+    "RelativePath": "BypassUrl",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SeleniumBaseApi.Models.BypassUrl, SeleniumBaseApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "Create",
+    "RelativePath": "BypassUrl",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bypassUrl",
+        "Type": "SeleniumBaseApi.Models.BypassUrl",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "Get",
+    "RelativePath": "BypassUrl/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SeleniumBaseApi.Models.BypassUrl",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "Update",
+    "RelativePath": "BypassUrl/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bypassUrl",
+        "Type": "SeleniumBaseApi.Models.BypassUrl",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "Delete",
+    "RelativePath": "BypassUrl/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "UpdateHtml",
+    "RelativePath": "BypassUrl/updateHtml/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bypassUrl",
+        "Type": "SeleniumBaseApi.Models.BypassUrl",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

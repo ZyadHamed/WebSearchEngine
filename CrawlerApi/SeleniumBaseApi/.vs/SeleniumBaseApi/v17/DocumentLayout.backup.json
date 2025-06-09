@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\SeleniumBaseApi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SeleniumBaseApi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Services\\BypassUrlService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\BypassUrlService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Controllers\\BypassUrlController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\BypassUrlController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\PythonRunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PythonRunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Models\\BypassUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\BypassUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 195,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SeleniumBaseApi.http",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\SeleniumBaseApi.http",
+              "RelativeDocumentMoniker": "SeleniumBaseApi.http",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\SeleniumBaseApi.http",
+              "RelativeToolTip": "SeleniumBaseApi.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-06-09T14:50:35.118Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BypassUrlService.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
+              "RelativeDocumentMoniker": "Services\\BypassUrlService.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
+              "RelativeToolTip": "Services\\BypassUrlService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:57:34.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BypassUrlController.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BypassUrlController.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "RelativeToolTip": "Controllers\\BypassUrlController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T10:06:21.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BypassUrl.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Models\\BypassUrl.cs",
+              "RelativeDocumentMoniker": "Models\\BypassUrl.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Models\\BypassUrl.cs",
+              "RelativeToolTip": "Models\\BypassUrl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T09:54:41.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PythonRunner.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\PythonRunner.cs",
+              "RelativeDocumentMoniker": "PythonRunner.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\PythonRunner.cs",
+              "RelativeToolTip": "PythonRunner.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAADAAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T11:56:39.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\SeleniumBaseApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T09:53:29.578Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
