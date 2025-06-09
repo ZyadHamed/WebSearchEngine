@@ -1,4 +1,4 @@
-@SeleniumBaseApi_HostAddress = http://localhost:5000
+@SeleniumBaseApi_HostAddress = https://localhost:5000
 # run the api so you can run the tests
 # remember to change the port to the one you are running (http://localhost:{port})
 # run the tests in order first to make sure that everything is working
