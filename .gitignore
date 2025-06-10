@@ -1,5 +1,7 @@
 Plans/.$General Plan.drawio.dtmp
 /CrawlerApi/SeleniumBaseApi/obj
+/CrawlerApi/SeleniumBaseApi/obj/Debug/
+/CrawlerApi/SeleniumBaseApi/obj/Debug/net8.0
 /CrawlerApi/SeleniumBaseApi/bin
 /CrawlerApi/SeleniumBaseApi/.vs
 /CrawlerApi/.vs
