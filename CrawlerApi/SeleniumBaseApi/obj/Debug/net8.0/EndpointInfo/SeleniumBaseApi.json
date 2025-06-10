@@ -214,6 +214,44 @@
           }
         }
       }
+    },
+    "/BypassUrl/getHtml": {
+      "get": {
+        "tags": [
+          "BypassUrl"
+        ],
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BypassUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BypassUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BypassUrl"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {

@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\CrawlerApi\\",
+  "WorkspaceRootPath": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|c:\\users\\youss\\onedrive\\desktop\\cs\\crawlerapi\\seleniumbaseapi\\services\\bypassurlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|c:\\users\\youss\\onedrive\\desktop\\cs\\github\\websearchengine\\crawlerapi\\seleniumbaseapi\\controllers\\bypassurlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|solutionrelative:seleniumbaseapi\\controllers\\bypassurlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|c:\\users\\youss\\onedrive\\desktop\\cs\\github\\websearchengine\\crawlerapi\\seleniumbaseapi\\services\\bypassurlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|solutionrelative:seleniumbaseapi\\services\\bypassurlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|c:\\users\\youss\\onedrive\\desktop\\cs\\github\\websearchengine\\crawlerapi\\seleniumbaseapi\\pythonrunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C9B66AC-D53B-BAAB-7611-EE43947BC835}|SeleniumBaseApi\\SeleniumBaseApi.csproj|solutionrelative:seleniumbaseapi\\pythonrunner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +22,43 @@
       "DocumentGroups": [
         {
           "DockedHeight": 195,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PythonRunner.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\PythonRunner.cs",
+              "RelativeDocumentMoniker": "SeleniumBaseApi\\PythonRunner.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\PythonRunner.cs",
+              "RelativeToolTip": "SeleniumBaseApi\\PythonRunner.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T20:47:52.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BypassUrlController.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "RelativeDocumentMoniker": "SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "RelativeToolTip": "SeleniumBaseApi\\Controllers\\BypassUrlController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowGYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T20:24:27.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BypassUrlService.cs",
-              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\CrawlerApi\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
+              "DocumentMoniker": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
               "RelativeDocumentMoniker": "SeleniumBaseApi\\Services\\BypassUrlService.cs",
-              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\CrawlerApi\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
+              "ToolTip": "C:\\Users\\youss\\OneDrive\\Desktop\\cs\\Github\\WebSearchEngine\\CrawlerApi\\SeleniumBaseApi\\Services\\BypassUrlService.cs",
               "RelativeToolTip": "SeleniumBaseApi\\Services\\BypassUrlService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-09T21:52:42.183Z",
               "EditorCaption": ""

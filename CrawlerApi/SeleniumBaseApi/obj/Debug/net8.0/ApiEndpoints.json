@@ -100,6 +100,32 @@
   },
   {
     "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
+    "Method": "GetHtmlByUrl",
+    "RelativePath": "BypassUrl/getHtml",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SeleniumBaseApi.Models.BypassUrl",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SeleniumBaseApi.Controllers.BypassUrlController",
     "Method": "UpdateHtml",
     "RelativePath": "BypassUrl/updateHtml/{id}",
     "HttpMethod": "PUT",

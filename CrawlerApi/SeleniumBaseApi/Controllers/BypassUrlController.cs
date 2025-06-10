@@ -68,9 +68,9 @@ public class BypassUrlController : ControllerBase
         if (exisstingBypassUrl is null)
             return NotFound();
 
-        // sends the url string to python
         string inputToPython = bypassUrl.Url;
 
+        // sends the url string to python
         var (pythonOutput, pythonError, pythonExitCode) = await PythonRunner.RunPythonScriptAsync(inputToPython);
 
         // returns the"500 internal server error" status code along with the error massege from python.exe
@@ -82,7 +82,21 @@ public class BypassUrlController : ControllerBase
 
         return NoContent();
     }
+    
+    [HttpGet("getHtml")]
+    public async Task<ActionResult<BypassUrl>> GetHtmlByUrl([FromQuery]string url)
+    {
+        if (url is null)
+            return BadRequest();
 
+        var (pythonOutput, pythonError, pythonExitCode) = await PythonRunner.RunPythonScriptAsync(url);
+
+        if (pythonExitCode != 0)
+            return StatusCode(500, $"Python script failed to update HTML. Error: {pythonError}");
+
+        return new BypassUrl {Url = url, HtmlContent = pythonOutput };
+    }
+    // normal delete request
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
