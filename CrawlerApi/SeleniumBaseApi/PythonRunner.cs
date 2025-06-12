@@ -20,7 +20,7 @@ public class PythonRunner
         string workingDirectory = Path.GetFullPath(baseDirectory);
 
         // Won't change. Don't change it
-        string pythonExecutableRelativePath = Path.Combine("SbEnv", "venv", "Scripts", "python.exe");
+        string pythonExecutableRelativePath = Path.Combine("SbEnv", ".venv", "Scripts", "python.exe");
 
         // here where you could edit the relative path. It's hard coded becuase it's likely won't change
         string scriptRelativePath = Path.Combine("SbEnv", "sb_script.py"); //change this to change the script file
@@ -39,6 +39,10 @@ public class PythonRunner
             CreateNoWindow = true,
             WorkingDirectory = workingDirectory // leave this alone
         };
+        string logMessage = $"Attempting to run Python. \n" +
+                    $"Working Directory: {workingDirectory}\n" +
+                    $"Python Executable: {startInfo.FileName}\n" +
+                    $"Arguments: {startInfo.Arguments}";
 
         using (var process = new Process { StartInfo = startInfo })
         {

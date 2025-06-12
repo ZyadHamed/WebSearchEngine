@@ -27,7 +27,7 @@ def url_from_csharp():
         sys.exit(1) # exit with aproblem
     
 def skip_captcha(url):
-    with SB(uc=True, ad_block_on=True) as sb:
+    with SB(ad_block_on=True, uc=True) as sb:
         sb.uc_open_with_reconnect(url, 6)
         sb.uc_gui_click_captcha()
         html_content = sb.get_page_source()
