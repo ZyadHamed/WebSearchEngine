@@ -26,29 +26,24 @@ app.post("/Search", async (req, res) => {
         let entry = await InvertedIndex.findOne({ word });
 
         if (!entry) {
-            // if word didn't exist before
-            entry = new InvertedIndex({ word, pagedata });
+            // First time word is seen — save as an array
+            entry = new InvertedIndex({ word, pagedata: Object.values(pagedata) });
         } else {
-            // if word is exist update it
-            for (const [url, newPageData] of Object.entries(pagedata)) {
-                const existingPage = entry.pagedata.get(url);
+            // Word exists — update its pagedata
+            for (const newPage of Object.values(pagedata)) {
+                const existingPage = entry.pagedata.find(p => p.pageURL === newPage.pageURL);
 
                 if (!existingPage) {
-                //if the page new make it
-                    entry.pagedata.set(url, newPageData);
+                    entry.pagedata.push(newPage);
                 } else {
-                    //if page alread exisit update count
-                    existingPage.count += newPageData.count;
-                    existingPage.frequency = Math.max(existingPage.frequency, newPageData.frequency);
+                    existingPage.count += newPage.count;
+                    existingPage.frequency = Math.max(existingPage.frequency, newPage.frequency);
 
-                    
                     const combinedRefs = new Set([
                         ...existingPage.pagesReferencingThisPage,
-                        ...newPageData.pagesReferencingThisPage
+                        ...newPage.pagesReferencingThisPage
                     ]);
                     existingPage.pagesReferencingThisPage = Array.from(combinedRefs);
-
-                    entry.pagedata.set(url, existingPage);
                 }
             }
         }
@@ -57,6 +52,7 @@ app.post("/Search", async (req, res) => {
         res.json({ message: "Entry saved/updated successfully", data: entry });
 
     } catch (err) {
+        console.error("Server Error:", err);
         res.status(500).json({ message: "Server error", error: err.message });
     }
 });
