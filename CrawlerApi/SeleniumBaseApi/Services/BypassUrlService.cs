@@ -3,18 +3,16 @@ using System.Collections.Generic;
 
 namespace SeleniumBaseApi.Services;
 
+//{Id = 1, Url = "https://gitlab.com/users/sign_in", HtmlContent = null} for testing
+
 public static class BypassUrlService
 {
     static List<BypassUrl> BypassUrls { get; }
-    static int nextId = 2;
+    static int nextId = 1;
 
     static BypassUrlService()
     {
-        // this initial value is for testing purposes
-        BypassUrls = new List<BypassUrl>
-        {
-            new BypassUrl {Id = 1, Url = "https://gitlab.com/users/sign_in", HtmlContent = null}
-        };
+        BypassUrls = new List<BypassUrl>();
     }
 
     public static List<BypassUrl> GetAll() => BypassUrls;
