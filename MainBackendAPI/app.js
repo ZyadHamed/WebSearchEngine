@@ -68,25 +68,51 @@ app.get("/Search", async (req, res) => {
     try {
         const results = await InvertedIndex.find({ word: { $in: words } });
 
-        if (results.length < words.length) {
-            return res.status(404).json({ message: "Not all words were found" });
+        const foundWords = results.map(r => r.word);
+        const missingWords = words.filter(w => !foundWords.includes(w));
+
+        if (results.length === 0) {
+            return res.status(404).json({ 
+                message: "None of the words were found", 
+                missingWords 
+            });
         }
 
-        // extract URL for words 
-        const allPageURLLists = results.map(entry => entry.pagedata.map(page => page.pageURL));
+        // Step 1: Collect pagedata for each found word
+        const wordsData = {};
+        const allPageURLLists = [];
 
-        // find the common page 
-        const commonPages = allPageURLLists.reduce((acc, curr) => acc.filter(url => curr.includes(url)));
+        for (const result of results) {
+            wordsData[result.word] = result.pagedata;
+            allPageURLLists.push(result.pagedata.map(p => p.pageURL));
+        }
 
-        // return data
-        const finalPages = results[0].pagedata.filter(p => commonPages.includes(p.pageURL));
+        // Step 2: Find intersection of page URLs
+        const commonURLs = allPageURLLists.reduce((acc, curr) => acc.filter(url => curr.includes(url)));
 
-        res.json({ commonPages: finalPages });
+        // Step 3: Get full page data for the common URLs
+        const allPages = results.flatMap(r => r.pagedata);
+        const uniquePagesMap = new Map();
+        for (const page of allPages) {
+            if (commonURLs.includes(page.pageURL)) {
+                uniquePagesMap.set(page.pageURL, page); // latest data
+            }
+        }
+
+        const finalPages = Array.from(uniquePagesMap.values());
+
+        res.json({
+            foundWords,
+            missingWords,
+            wordsData,
+            commonPages: finalPages
+        });
 
     } catch (err) {
         res.status(500).json({ message: "Server error", error: err.message });
     }
 });
+
 
 app.listen(3000, () => {
 	console.log("I am listening in port 3000");
