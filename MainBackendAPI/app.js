@@ -69,50 +69,49 @@ app.get("/Search", async (req, res) => {
         const results = await InvertedIndex.find({ word: { $in: words } });
 
         const foundWords = results.map(r => r.word);
-        const missingWords = words.filter(w => !foundWords.includes(w));
+        const notFound = words.filter(w => !foundWords.includes(w));
 
-        if (results.length === 0) {
-            return res.status(404).json({ 
-                message: "None of the words were found", 
-                missingWords 
-            });
-        }
-
-        // Step 1: Collect pagedata for each found word
-        const wordsData = {};
-        const allPageURLLists = [];
+        const pageDataMap = {};
 
         for (const result of results) {
-            wordsData[result.word] = result.pagedata;
-            allPageURLLists.push(result.pagedata.map(p => p.pageURL));
-        }
+            const word = result.word;
 
-        // Step 2: Find intersection of page URLs
-        const commonURLs = allPageURLLists.reduce((acc, curr) => acc.filter(url => curr.includes(url)));
+            for (const page of result.pagedata) {
+                if (!pageDataMap[page.pageURL]) {
+                    pageDataMap[page.pageURL] = {
+                        pageTitle: page.pageTitle,
+                        pageURL: page.pageURL,
+                        description: "No description", 
+                        pagerank: 1.0, 
+                        keywords: [],
+                        count: 0,
+                        match_words: []
+                    };
+                }
 
-        // Step 3: Get full page data for the common URLs
-        const allPages = results.flatMap(r => r.pagedata);
-        const uniquePagesMap = new Map();
-        for (const page of allPages) {
-            if (commonURLs.includes(page.pageURL)) {
-                uniquePagesMap.set(page.pageURL, page); // latest data
+                const pageEntry = pageDataMap[page.pageURL];
+
+                pageEntry.count += page.count;
+                pageEntry.match_words.push(word);
+                if (!pageEntry.keywords.includes(word)) {
+                    pageEntry.keywords.push(word);
+                }
             }
         }
 
-        const finalPages = Array.from(uniquePagesMap.values());
+        const sortedResults = Object.values(pageDataMap)
+            .sort((a, b) => b.count - a.count);
 
         res.json({
-            foundWords,
-            missingWords,
-            wordsData,
-            commonPages: finalPages
+            cleaned_query: foundWords,
+            not_found: notFound,
+            sortedResults
         });
 
     } catch (err) {
         res.status(500).json({ message: "Server error", error: err.message });
     }
 });
-
 
 app.listen(3000, () => {
 	console.log("I am listening in port 3000");
