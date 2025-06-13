@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SeleniumBaseApi;
+namespace SeleniumBaseApi.Classes;
 
 public class PythonRunner
 {
@@ -39,14 +39,9 @@ public class PythonRunner
             CreateNoWindow = true,
             WorkingDirectory = workingDirectory // leave this alone
         };
-        string logMessage = $"Attempting to run Python. \n" +
-                    $"Working Directory: {workingDirectory}\n" +
-                    $"Python Executable: {startInfo.FileName}\n" +
-                    $"Arguments: {startInfo.Arguments}";
 
         using (var process = new Process { StartInfo = startInfo })
         {
-            // O(n) is better than O(n²)
             StringBuilder outputBuilder = new StringBuilder();
             StringBuilder errorBuilder = new StringBuilder();
 
