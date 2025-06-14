@@ -11,6 +11,7 @@ using SeleniumBaseApi.Classes;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
+using SeleniumBaseApi.Services;
 
 
 namespace SeleniumBaseApi.Controllers
@@ -51,25 +52,17 @@ namespace SeleniumBaseApi.Controllers
 
             cancellationTokenSource = new CancellationTokenSource(secondsToScrap * 1000 + 10);
 
-            var tasks = new[]
+            int maxThreads;
+            int dummyVariable;
+            ThreadPool.GetAvailableThreads(out maxThreads, out dummyVariable);
+
+            maxThreads = 70;
+            var tasks = new Task[maxThreads];
+            for(int i = 0; i < maxThreads; i++)
             {
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource),
-                RetrivePagesData(cancellationTokenSource)
-            };
+                tasks[i] = RetrivePagesData(cancellationTokenSource);
+
+            } 
 
             await Task.WhenAll(tasks);
             URLStripper urlStripper = new URLStripper();
@@ -81,6 +74,20 @@ namespace SeleniumBaseApi.Controllers
                     AllScrappedPagesData[i].PagesReferencingThisPage = WebsitesReferencingEachSite[pageURLHost];
                 }
             }
+
+            string combinedQuery= "INSERT INTO WebPages (URL) VALUES ";
+            while (WebsitesQueue.Count > 1)
+            {
+                string website = WebsitesQueue.Dequeue();
+                if (!currentWebsitesSoFar.Contains(website))
+                {
+                    combinedQuery += $"('{website}'), ";
+                    currentWebsitesSoFar.Add(website);
+                }
+            }
+            string finalwebsite = WebsitesQueue.Dequeue();
+            combinedQuery += $"('{finalwebsite}');";
+            await SQLiteManagerService.InsertWebPages(combinedQuery);
             return AllScrappedPagesData;
         }
 
@@ -151,7 +158,18 @@ namespace SeleniumBaseApi.Controllers
                 }
                 pageData.PageTitle = pageTitle;
                 List<string> links = new List<string>();
-                
+
+                lock (currentWebsitesSoFarLock)
+                {
+                    //If that's the first time we have seen this webpage, store it in the hashmap of visited webpages
+                    if (currentWebsitesSoFar.Contains(strippedURL))
+                    {
+                        return null;
+                    }
+                    currentWebsitesSoFar.Add(strippedURL);
+                }
+
+
                 //most important links are contained in <a></a> HTML elements
                 var linksContainers = page.Html.CssSelect("a");
                 foreach (HtmlNode linkContainer in linksContainers)
@@ -163,15 +181,6 @@ namespace SeleniumBaseApi.Controllers
                     {
                         //Strip the URL from any parameters 
                         link = urlStripper.stripURL(link);
-                        lock (currentWebsitesSoFarLock)
-                        {
-                            //If that's the first time we have seen this webpage, store it in the hashmap of visited webpages
-                            if (currentWebsitesSoFar.Contains(link))
-                            {
-                                continue;
-                            }
-                            currentWebsitesSoFar.Add(link);
-                        }
                         //Add the link to the list of links embedded in the webpage
                         links.Add(link);
 

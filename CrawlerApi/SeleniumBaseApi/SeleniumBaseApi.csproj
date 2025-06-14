@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="ScrapySharp" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
   </ItemGroup>
 
 </Project>
