@@ -2,23 +2,29 @@ const InvertedIndex = require("../models/InvertedIndex");
 const PageData = require("../models/PageData");
 
 const searchPages = async (req, res) => {
+  //Extract words form request
   const words = req.query.words?.split(",").map(w => w.trim()) || [];
-  const sortBy = req.query.sort || "tfidf"; // tfidf هو الافتراضي
+  const sortBy = req.query.sort || "tfidf"; 
 
+  // check if it write word
   if (words.length === 0) {
     return res.status(400).json({ message: "Please provide words as a comma-separated query string" });
   }
 
   try {
+    //extract data from database (Inverted index )
     const entries = await InvertedIndex.find({ _id: { $in: words } });
+    // count fo all doc
     const totalDocs = await PageData.countDocuments();
 
+    //check for wors in database
     const foundWords = entries.map(e => e._id);
     const notFound = words.filter(w => !foundWords.includes(w));
 
     const pageScores = {}; // pageURL → { count, tfidf, match_words, keywords }
 
     for (const entry of entries) {
+      //calculate idf()
       const idf = Math.log((totalDocs + 1) / (Object.keys(entry.pages).length + 1));
 
       for (const [url, data] of Object.entries(entry.pages)) {
@@ -29,6 +35,8 @@ const searchPages = async (req, res) => {
         const tf = totalWords > 0 ? data.wordCount / totalWords : 0;
         const tfidf = tf * idf;
 
+
+        // collect the data calculated to put in in result
         if (!pageScores[url]) {
           pageScores[url] = {
             count: 0,
@@ -37,7 +45,6 @@ const searchPages = async (req, res) => {
             keywords: []
           };
         }
-
         pageScores[url].count += data.wordCount || 0;
         pageScores[url].tfidf += tfidf;
         pageScores[url].match_words.push(entry._id);
@@ -49,7 +56,7 @@ const searchPages = async (req, res) => {
 
     const urls = Object.keys(pageScores);
     const pages = await PageData.find({ _id: { $in: urls } });
-
+    // final result
     const results = pages.map(page => {
       const score = pageScores[page._id] || {};
       return {
@@ -83,6 +90,7 @@ const searchPages = async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
+
 
 
 module.exports = { searchPages };
