@@ -3,12 +3,14 @@ const PageData = require("../models/PageData");
 
 const searchPages = async (req, res) => {
   //Extract words form request
-  const words = req.query.words?.split(",").map(w => w.trim()) || [];
-  const sortBy = req.query.sort || "tfidf"; 
+  const words = req.query.words?.split(",").map((w) => w.trim()) || [];
+  const sortBy = req.query.sort || "tfidf";
 
   // check if it write word
   if (words.length === 0) {
-    return res.status(400).json({ message: "Please provide words as a comma-separated query string" });
+    return res.status(400).json({
+      message: "Please provide words as a comma-separated query string",
+    });
   }
 
   try {
@@ -18,31 +20,32 @@ const searchPages = async (req, res) => {
     const totalDocs = await PageData.countDocuments();
 
     //check for wors in database
-    const foundWords = entries.map(e => e._id);
-    const notFound = words.filter(w => !foundWords.includes(w));
+    const foundWords = entries.map((e) => e._id);
+    const notFound = words.filter((w) => !foundWords.includes(w));
 
     const pageScores = {}; // pageURL → { count, tfidf, match_words, keywords }
 
+    wordsIDF = {};
+
     for (const entry of entries) {
       //calculate idf()
-      const idf = Math.log((totalDocs + 1) / (Object.keys(entry.pages).length + 1));
-
+      const idf = Math.log(
+        (totalDocs + 1) / (Object.keys(entry.pages).length + 1)
+      );
+      wordsIDF[entry._id] = idf;
+    }
+    for (const entry of entries) {
       for (const [url, data] of Object.entries(entry.pages)) {
         const pageDoc = await PageData.findById(url);
         const description = pageDoc?.description || "";
-        const totalWords = description.trim().split(/\s+/).length || 100;
-
-        const tf = totalWords > 0 ? data.wordCount / totalWords : 0;
-        const tfidf = tf * idf;
-
-
+        const tfidf = data.frequency * wordsIDF[entry._id];
         // collect the data calculated to put in in result
         if (!pageScores[url]) {
           pageScores[url] = {
             count: 0,
             tfidf: 0,
             match_words: [],
-            keywords: []
+            keywords: [],
           };
         }
         pageScores[url].count += data.wordCount || 0;
@@ -53,11 +56,11 @@ const searchPages = async (req, res) => {
         }
       }
     }
-
+    console.log(wordsIDF);
     const urls = Object.keys(pageScores);
     const pages = await PageData.find({ _id: { $in: urls } });
     // final result
-    const results = pages.map(page => {
+    const results = pages.map((page) => {
       const score = pageScores[page._id] || {};
       return {
         pageURL: page._id,
@@ -67,7 +70,7 @@ const searchPages = async (req, res) => {
         count: score.count || 0,
         tfidf: score.tfidf || 0,
         match_words: score.match_words || [],
-        keywords: score.keywords || []
+        keywords: score.keywords || [],
       };
     });
 
@@ -82,15 +85,12 @@ const searchPages = async (req, res) => {
     res.json({
       cleaned_query: foundWords,
       not_found: notFound,
-      sortedResults: results
+      sortedResults: results,
     });
-
   } catch (err) {
     console.error("GET /Search Error:", err);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
-
-
 
 module.exports = { searchPages };

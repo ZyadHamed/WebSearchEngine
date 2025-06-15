@@ -7,5 +7,7 @@
         public List<string> PagesReferencingThisPage { get; set; }
         public Dictionary<string, WordData> WordsData { get; set; }
         public List<string> EmbeddedURLs { get; set; }
+
+        public string Description { get; set; } = "";
     }
 }

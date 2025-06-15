@@ -40,25 +40,25 @@ namespace SeleniumBaseApi.Services
             }
         }
 
-        public static async Task<Queue<string>> CreateWebsitesQueue()
+        public static async Task<List<string>> RetriveWebsitesBatch()
         {
             string commandQuery = "SELECT * FROM WebPages LIMIT 2000;";
             SQLiteCommand command = new SQLiteCommand(commandQuery, sqliteConnection);
-            Queue<string> queue = new Queue<string>();
+            List<string> websites = new List<string>();
             using (var reader = await command.ExecuteReaderAsync())
             {
                 if (reader.HasRows)
                 {
                     while(await reader.ReadAsync())
                     {
-                        queue.Enqueue(reader.GetString(0));
-                    }
+                        websites.Add(reader.GetString(0));
+                    } 
                 }
             }
             string deleteQuery = "DELETE FROM WebPages LIMIT 2000;";
             SQLiteCommand deleteCommand = new SQLiteCommand(deleteQuery, sqliteConnection);
             await deleteCommand.ExecuteNonQueryAsync();
-            return queue;
+            return websites;
         }
     }
 }

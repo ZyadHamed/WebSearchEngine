@@ -12,6 +12,11 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
 using SeleniumBaseApi.Services;
+using System.Net.Http;
+using System.Text.Json;
+using System.Text;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using SeleniumBaseApi.Models;
 
 
 namespace SeleniumBaseApi.Controllers
@@ -40,7 +45,87 @@ namespace SeleniumBaseApi.Controllers
         HashSet<string> currentWebsitesSoFar = new HashSet<string>();
         readonly object currentWebsitesSoFarLock = new object();
 
+        HttpClient httpclient = new HttpClient();
+
         #endregion
+
+
+        async Task SendDataRegularly()
+        {
+            while (true)
+            {
+                await Task.Delay(200);
+                string APIURL = "http://localhost:4000/api/index";
+                List<PageData> finalValues = await UpdateDatabaseIndexing();
+                Console.WriteLine($"Current executing a new queue. Queue value: {WebsitesQueue.Count}");
+                using StringContent jsonContent = new(
+                JsonSerializer.Serialize(finalValues),
+                Encoding.UTF8,
+                "application/json");
+
+                using HttpResponseMessage response = await httpclient.PostAsync(
+                    APIURL,
+                    jsonContent);
+
+                response.EnsureSuccessStatusCode();
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                Console.WriteLine(responseString);
+            }
+        }
+
+        async Task<List<PageData>> UpdateDatabaseIndexing()
+        {
+            AllScrappedPagesData.Clear();
+            
+            List<string> WebsitesToScrap = await SQLiteManagerService.RetriveWebsitesBatch();
+            lock (WebsitesQueueLock)
+            {
+                foreach(string link in WebsitesToScrap)
+                {
+                    WebsitesQueue.Enqueue(link);
+                }
+            }
+            int maxThreads = 10;
+            var tasks = new Task[maxThreads];
+            cancellationTokenSource = new CancellationTokenSource(15 * 1000 + 10);
+            for (int i = 0; i < maxThreads; i++)
+            {
+                tasks[i] = RetrivePagesData(cancellationTokenSource);
+
+            }
+
+            await Task.WhenAll(tasks);
+            URLStripper urlStripper = new URLStripper();
+            for (int i = 0; i < AllScrappedPagesData.Count; i++)
+            {
+                string pageURLHost = urlStripper.GetBaseURL(AllScrappedPagesData[i].PageURL);
+                if (WebsitesReferencingEachSite.ContainsKey(pageURLHost))
+                {
+                    AllScrappedPagesData[i].PagesReferencingThisPage = WebsitesReferencingEachSite[pageURLHost];
+                }
+            }
+
+
+            string combinedQuery = "INSERT INTO WebPages (URL) VALUES ";
+            Console.WriteLine($"The queue so far has {WebsitesQueue.Count}");
+            while (WebsitesQueue.Count > 1)
+            {
+                string website = WebsitesQueue.Dequeue();
+                if (!currentWebsitesSoFar.Contains(website))
+                {
+                    combinedQuery += $"('{website}'), ";
+                    currentWebsitesSoFar.Add(website);
+                    Console.WriteLine("A new unique page!!!");
+                }
+            }
+            string finalwebsite = WebsitesQueue.Dequeue();
+            combinedQuery += $"('{finalwebsite}');";
+            Console.WriteLine($"Query Length {combinedQuery.Length}");
+            await SQLiteManagerService.InsertWebPages(combinedQuery);
+            return AllScrappedPagesData;
+        }
 
         [HttpPost]
         public async Task<List<PageData>> ScrapURLs(List<string> URLs, int secondsToScrap)
@@ -52,11 +137,7 @@ namespace SeleniumBaseApi.Controllers
 
             cancellationTokenSource = new CancellationTokenSource(secondsToScrap * 1000 + 10);
 
-            int maxThreads;
-            int dummyVariable;
-            ThreadPool.GetAvailableThreads(out maxThreads, out dummyVariable);
-
-            maxThreads = 70;
+            int maxThreads = 10;
             var tasks = new Task[maxThreads];
             for(int i = 0; i < maxThreads; i++)
             {
@@ -75,7 +156,8 @@ namespace SeleniumBaseApi.Controllers
                 }
             }
 
-            string combinedQuery= "INSERT INTO WebPages (URL) VALUES ";
+
+            string combinedQuery = "INSERT INTO WebPages (URL) VALUES ";
             while (WebsitesQueue.Count > 1)
             {
                 string website = WebsitesQueue.Dequeue();
@@ -88,6 +170,8 @@ namespace SeleniumBaseApi.Controllers
             string finalwebsite = WebsitesQueue.Dequeue();
             combinedQuery += $"('{finalwebsite}');";
             await SQLiteManagerService.InsertWebPages(combinedQuery);
+            Task.Run(SendDataRegularly);
+
             return AllScrappedPagesData;
         }
 
@@ -154,9 +238,19 @@ namespace SeleniumBaseApi.Controllers
                 string pageTitle = "";
                 if(TitleNode != null)
                 {
-                    pageTitle = TitleNode.InnerText;
+                    pageTitle = TitleNode.InnerText.Trim();
                 }
                 pageData.PageTitle = pageTitle;
+
+                HtmlNode DescriptionNode = page.Html.SelectSingleNode("//meta[@name=\"description\"]");
+                string pageDescription = "";
+                if (DescriptionNode != null)
+                {
+                    pageDescription = DescriptionNode.InnerText.Trim();
+                }
+                pageData.Description = pageDescription;
+
+
                 List<string> links = new List<string>();
 
                 lock (currentWebsitesSoFarLock)
@@ -266,5 +360,17 @@ namespace SeleniumBaseApi.Controllers
             }
             return null;
         }
+
+        async Task<string> BypassComplexURL(string url)
+        {
+
+            var (pythonOutput, pythonError, pythonExitCode) = await PythonRunner.RunPythonScriptAsync(url);
+
+            if (pythonExitCode != 0)
+                Console.WriteLine($"Python script failed to update HTML. Error: {pythonError}");
+
+            return pythonOutput;
+        }
+
     }
 }
