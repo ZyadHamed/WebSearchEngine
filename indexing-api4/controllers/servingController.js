@@ -36,23 +36,24 @@ const searchPages = async (req, res) => {
     }
     for (const entry of entries) {
       for (const [url, data] of Object.entries(entry.pages)) {
-        const pageDoc = await PageData.findById(url);
+        const newURL = url.replace(/~dot~/g, ".");
+        const pageDoc = await PageData.findById(newURL);
         const description = pageDoc?.description || "";
         const tfidf = data.frequency * wordsIDF[entry._id];
         // collect the data calculated to put in in result
-        if (!pageScores[url]) {
-          pageScores[url] = {
+        if (!pageScores[newURL]) {
+          pageScores[newURL] = {
             count: 0,
             tfidf: 0,
             match_words: [],
             keywords: [],
           };
         }
-        pageScores[url].count += data.wordCount || 0;
-        pageScores[url].tfidf += tfidf;
-        pageScores[url].match_words.push(entry._id);
-        if (!pageScores[url].keywords.includes(entry._id)) {
-          pageScores[url].keywords.push(entry._id);
+        pageScores[newURL].count += data.wordCount || 0;
+        pageScores[newURL].tfidf += tfidf;
+        pageScores[newURL].match_words.push(entry._id);
+        if (!pageScores[newURL].keywords.includes(entry._id)) {
+          pageScores[newURL].keywords.push(entry._id);
         }
       }
     }

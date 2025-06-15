@@ -170,7 +170,7 @@ namespace SeleniumBaseApi.Controllers
             string finalwebsite = WebsitesQueue.Dequeue();
             combinedQuery += $"('{finalwebsite}');";
             await SQLiteManagerService.InsertWebPages(combinedQuery);
-            Task.Run(SendDataRegularly);
+            //Task.Run(SendDataRegularly);
 
             return AllScrappedPagesData;
         }

@@ -1,6 +1,45 @@
 const InvertedIndex = require("../models/InvertedIndex");
 const PageData = require("../models/PageData");
 
+async function indexWords(wordsData, pageURL) {
+  if (wordsData && typeof wordsData === "object") {
+    const bulkOps = [];
+
+    for (let [word, wordData] of Object.entries(wordsData)) {
+      if (
+        !wordData ||
+        typeof wordData.count !== "number" ||
+        typeof wordData.frequency !== "number"
+      ) {
+        continue; // skip invalid word entry
+      }
+
+      bulkOps.push({
+        updateOne: {
+          filter: { _id: word },
+          update: {
+            $set: {
+              [`pages.${pageURL.replace(/\./g, "~dot~")}`]: {
+                frequency: wordData.frequency,
+              },
+            },
+          },
+          upsert: true,
+        },
+      });
+    }
+
+    if (bulkOps.length > 0) {
+      try {
+        await InvertedIndex.bulkWrite(bulkOps, {
+          ordered: false,
+        });
+      } catch (error) {
+        console.error("Bulk write error:", error);
+      }
+    }
+  }
+}
 const indexPage = async (req, res) => {
   const pages = req.body;
 
@@ -27,36 +66,7 @@ const indexPage = async (req, res) => {
       }
 
       // 1. Store or update words (InvertedIndex)
-      if (wordsData && typeof wordsData === "object") {
-        for (let [word, wordData] of Object.entries(wordsData)) {
-          if (
-            !wordData ||
-            typeof wordData.count !== "number" ||
-            typeof wordData.frequency !== "number"
-          ) {
-            continue; // skip invalid word entry
-          }
-          const doc = await InvertedIndex.findById(word);
-          if (doc) {
-            doc.pages ??= {};
-            doc.pages[pageURL] = {
-              wordCount: wordData.wordCount,
-              frequency: wordData.frequency,
-            };
-            await doc.save();
-          } else {
-            await InvertedIndex.create({
-              _id: word,
-              pages: {
-                [pageURL]: {
-                  wordCount: wordData.wordCount,
-                  frequency: wordData.frequency,
-                },
-              },
-            });
-          }
-        }
-      }
+      await indexWords(wordsData, pageURL);
       // 3. Store or update the current page
       const page = await PageData.findById(pageURL);
 
