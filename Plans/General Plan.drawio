@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2853" dy="1737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1700" math="0" shadow="0">
+    <mxGraphModel dx="1556" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -11,7 +11,7 @@
           <mxGeometry x="730" y="1050" width="980" height="250" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="Core Backend API" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="580" y="710" width="200" height="190" as="geometry">
+          <mxGeometry x="580" y="710" width="200" height="138" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -21,20 +21,14 @@
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="+GetQueryResults()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;textShadow=0;labelBorderColor=none;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="34" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="wxarfpQwZNa4B09bHYkx-19" value="+LookUpWordsInDatabase()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+        <mxCell id="wxarfpQwZNa4B09bHYkx-20" value="+IndexWordInDatabase()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="60" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="wxarfpQwZNa4B09bHYkx-20" value="+IndexWordInDatabase()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+        <mxCell id="wxarfpQwZNa4B09bHYkx-21" value="+CrawlPages()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="86" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="wxarfpQwZNa4B09bHYkx-21" value="+CrawlPages()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
-          <mxGeometry y="112" width="200" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="wxarfpQwZNa4B09bHYkx-26" value="+GetWebPagePageRank()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
-          <mxGeometry y="138" width="200" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="wxarfpQwZNa4B09bHYkx-27" value="+UpdateWebpagePageRank()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
-          <mxGeometry y="164" width="200" height="26" as="geometry" />
+          <mxGeometry y="112" width="200" height="26" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" value="Front End" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="270" y="710" width="200" height="138" as="geometry">
@@ -68,7 +62,7 @@
           <mxGeometry y="34" width="190" height="26" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--17" value="Web Crawler API" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="840" y="697" width="310" height="242" as="geometry">
+          <mxGeometry x="840" y="697" width="310" height="190" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -90,14 +84,8 @@
         <mxCell id="wxarfpQwZNa4B09bHYkx-34" value="+CrawlPage()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
           <mxGeometry y="138" width="310" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="wxarfpQwZNa4B09bHYkx-9" value="+GetPagePermissions()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
-          <mxGeometry y="164" width="310" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--25" value="+GetPageData()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
-          <mxGeometry y="190" width="310" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-0" value="+StopCrawling()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
-          <mxGeometry y="216" width="310" height="26" as="geometry" />
+          <mxGeometry y="164" width="310" height="26" as="geometry" />
         </mxCell>
         <mxCell id="wxarfpQwZNa4B09bHYkx-0" value="Website Bypasser API" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1170" y="720" width="193" height="60" as="geometry">
@@ -295,178 +283,13 @@
         <mxCell id="8kWV0dTaUfHmcFmMoC4k-27" value="The method will return a list of PageData objects for all found links" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1496" y="1700" width="280" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-32" value="Database Indexing Workflow" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1095" y="2560" width="180" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-36" target="8kWV0dTaUfHmcFmMoC4k-37" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-39" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-38" vertex="1" connectable="0">
-          <mxGeometry x="-0.6583" y="2" relative="1" as="geometry">
-            <mxPoint x="18" y="13" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-36" target="8kWV0dTaUfHmcFmMoC4k-40" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-42" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-41" vertex="1" connectable="0">
-          <mxGeometry x="0.0471" y="1" relative="1" as="geometry">
-            <mxPoint x="-9" y="-9" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-36" value="Is there a request for a seach?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1070" y="2650" width="230" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-37" target="8kWV0dTaUfHmcFmMoC4k-45" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-37" value="Retrive the List&amp;lt;PageData&amp;gt; being sent by the crawler as it attempts to expand the network of webpages in our database. If a thread is busy dealing with indexing, loop through all avaliable threads until an empty thread is found.&amp;nbsp;" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1035" y="2770" width="300" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-40" target="8kWV0dTaUfHmcFmMoC4k-43" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-40" value="Halt all current threads except the dedicated background working thread" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1355" y="2660" width="240" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-43" value="Execute the plan in the searching workflow" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1665" y="2660" width="200" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-45" target="8kWV0dTaUfHmcFmMoC4k-47" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-45" value="For each PageData in List&amp;lt;PageData&amp;gt;" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1045" y="2890" width="280" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-47" target="8kWV0dTaUfHmcFmMoC4k-52" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1185" y="3070" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-47" value="For each (word, WordData) in WordsData" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1055" y="2980" width="260" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-52" target="8kWV0dTaUfHmcFmMoC4k-54" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-57" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-55" vertex="1" connectable="0">
-          <mxGeometry x="-0.4598" y="-3" relative="1" as="geometry">
-            <mxPoint x="9" y="-13" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-52" target="8kWV0dTaUfHmcFmMoC4k-61" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1185" y="3220" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-60" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-59" vertex="1" connectable="0">
-          <mxGeometry x="-0.0634" y="2" relative="1" as="geometry">
-            <mxPoint x="18" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-52" value="word exists in the Database?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1095" y="3090" width="180" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-54" value="Add an entry for this word in the database and associate this page link with it" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1335" y="3100" width="310" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-61" target="8kWV0dTaUfHmcFmMoC4k-63" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-65" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-64" vertex="1" connectable="0">
-          <mxGeometry x="-0.2276" relative="1" as="geometry">
-            <mxPoint x="11" y="-10" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-61" target="8kWV0dTaUfHmcFmMoC4k-66" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-68" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-67" vertex="1" connectable="0">
-          <mxGeometry x="-0.1876" y="3" relative="1" as="geometry">
-            <mxPoint x="17" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-61" value="The word has the website associated with it&lt;div&gt;in the database?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1025" y="3220" width="320" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-63" value="Update the reference in the database to contain this link" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1395" y="3240" width="240" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-66" target="8kWV0dTaUfHmcFmMoC4k-47" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1675" y="3400" />
-              <mxPoint x="1675" y="3010" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-75" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-66" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1185" y="3470" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-66" value="Update the word data in that website (in case the website has been updated or changed)" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1015" y="3370" width="340" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="8kWV0dTaUfHmcFmMoC4k-69" value="&lt;font style=&quot;font-size: 29px;&quot;&gt;APIs&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="780" y="600" width="80" height="50" as="geometry" />
         </mxCell>
         <mxCell id="8kWV0dTaUfHmcFmMoC4k-72" value="&lt;font style=&quot;font-size: 29px;&quot;&gt;Objects&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1150" y="1060" width="120" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-76" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1355" y="3510.2857142857147" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-79" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-77" vertex="1" connectable="0">
-          <mxGeometry x="-0.2495" y="-2" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-76" target="8kWV0dTaUfHmcFmMoC4k-83" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1185" y="3590" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-82" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-81" vertex="1" connectable="0">
-          <mxGeometry x="-0.1583" relative="1" as="geometry">
-            <mxPoint x="20" y="3" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-76" value="page exists in the Database?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1095" y="3470" width="180" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-78" value="Add an entry for this word in the database and associate this page link with it" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1360" y="3480" width="310" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-83" target="8kWV0dTaUfHmcFmMoC4k-84" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-86" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8kWV0dTaUfHmcFmMoC4k-85" vertex="1" connectable="0">
-          <mxGeometry x="-0.3255" relative="1" as="geometry">
-            <mxPoint x="12" y="-10" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-83" target="8kWV0dTaUfHmcFmMoC4k-45" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1185" y="3750" />
-              <mxPoint x="1875" y="3750" />
-              <mxPoint x="1875" y="2905" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-83" value="The links that reference the page (according to the database) already have the same links as the ones in the PageData object?" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1050" y="3610" width="270" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="8kWV0dTaUfHmcFmMoC4k-84" target="8kWV0dTaUfHmcFmMoC4k-45" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="8kWV0dTaUfHmcFmMoC4k-84" value="Add the links that reference the webpage and are not associated with it yet to the database" style="whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1415" y="3640" width="310" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4yEHCG5hgf_MdGySM3fG-0" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;The 2 Main jobs of the search engine&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;The search engine will have 2 main jobs: Searching and Updating. The searching happens when the user enters a query to search for. This part relies mainly on the indexing database, with a use of the crawler if it&#39;s nessessary.&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;The updateing on the other hand is a rountine procedure, it&#39;s always working. Basically, whenever the user isn&#39;t searching, we&#39;ll use our resources to crawel webpages all across the internet and index them in the database. We are basically expanding the database with more words and webpages.&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;We know that the indexer and the crawler each work on a server. This server has CPU cores, or threads. We&#39;ll allocate one thread for updating in both the indexer and the crawler, the rest will be used for searching if the user searches and for updating whenever the user isn&#39;t using the program. For example, if we have 15&amp;nbsp; cores that we can use, 1 core from the indexer server will be always working with 1 core from the crawler server to update our database. The remaining cores will handle searching whenever the user searches, but will be used for updating otherwise.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="4yEHCG5hgf_MdGySM3fG-0" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;The 2 Main jobs of the search engine&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;The search engine will have 2 main jobs: Searching and Updating. The searching happens when the user enters a query to search for. This part relies mainly on the indexing database, with a use of the crawler if it&#39;s nessessary.&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;The updateing on the other hand is a rountine procedure, it&#39;s always working. Basically, whenever the user isn&#39;t searching, we&#39;ll use our resources to crawel webpages all across the internet and index them in the database. We are basically expanding the database with more words and webpages.&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;We know that the indexer and the crawler each work on a server. This server has CPU cores, or threads. We&#39;ll allocate one thread for updating in both the indexer and the crawler, the rest will be used for searching if the user searches and for updating whenever the user isn&#39;t using the program. For example, if we have 15&amp;nbsp; cores that we can use, 1 core from the indexer server will be always working with 1 core from the crawler server to update our database. The remaining cores will handle searching whenever the user searches, but will be used for updating otherwise.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="80" y="20" width="850" height="510" as="geometry" />
         </mxCell>
       </root>
