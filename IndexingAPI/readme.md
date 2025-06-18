@@ -131,7 +131,6 @@ GET /api/search
 - Timeout handling
 - Duplicate entry management
 - Query validation
-
 ## System Requirements
 - Node.js 14+
 - MongoDB 4.4+
@@ -160,3 +159,11 @@ POST /api/index
 // Perform search
 GET /api/search?words=keyword1,keyword2&sort=tfidf
 ```
+
+## Future Enhancements
+- Distributed indexing
+- Advanced caching
+- Real-time PageRank updates
+- Query suggestion system
+- Relevance feedback
+
