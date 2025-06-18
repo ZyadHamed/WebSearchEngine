@@ -275,4 +275,4 @@ function tryParseJSON(raw) {
   }
 }
 
-//sendToCrawler();
+sendToCrawler();
