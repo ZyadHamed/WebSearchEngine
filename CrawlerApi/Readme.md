@@ -160,3 +160,13 @@ await crawler.ScrapURLs(urls, timeoutSeconds);
 // Monitor update routine
 // Auto-starts with crawler initialization
 ```
+
+## Future Enhancements
+- Distributed crawling support
+- Advanced robot.txt parsing
+- Dynamic content rendering
+- Proxy rotation system
+- Enhanced metadata extraction
+- Real-time analytics dashboard
+- Advanced caching mechanisms
+- Custom scraping rules engine
